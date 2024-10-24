@@ -5,22 +5,26 @@ description: 'Create a new source from a URL'
 authMethod: "bearer"
 ---
 
-This endpoint creates a new source for the authenticated user's account from a URL. It scrapes the website, extracts the text, preprocesses the text, and stores the content in the privvy database.
+This endpoint creates a new source for the authenticated user's account from a URL. It tests the URL, identifies the source type, and initiates the document processing.
 
 ### Authorization
 
 <Authorization name="Authorization" type="string" required>
-  The API key to use for authentication.
+  The API key to use for authentication. Must have WRITE_SOURCES permission.
 </Authorization>
 
 ### Body
 
-<ParamField body="url" type="string" required>
+<ParamField body="url" type="string" required format="uri">
   The URL of the website to create a source from.
 </ParamField>
+<Note>
+  Depending on the size of the website and the number of pages, it may take some time to process the source.
+  The maximum number of pages that can be extracted is 500.
+</Note>
 
 <ParamField body="autoUpdate" type="boolean" required>
-  Whether to automatically update the source. This will happen periodically at a 24 hour interval.
+  Whether to automatically update the source at a 24 hour interval.
 </ParamField>
 
 <ParamField body="metadata" type="object" optional>
@@ -35,7 +39,7 @@ This endpoint creates a new source for the authenticated user's account from a U
   The reference ID of the zone to create the source in.
 </ParamField>
 
-One of `zoneId` or `zoneReferenceId` is required.
+Either `zoneId` or `zoneReferenceId` must be provided.
 
 ### Response
 
@@ -44,22 +48,36 @@ One of `zoneId` or `zoneReferenceId` is required.
 curl -X POST 'https://api.privvy.xyz/source/url' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
--d '{"url": "https://example.com", "autoUpdate": true, "metadata": {"key": "value"}}'
+-d '{"url": "https://example.com", "autoUpdate": true, "metadata": {"key": "value"}, "zoneId": "zone123"}'
 ```
 </RequestExample>
 
 <ResponseExample>
 ```json
-  {
+{
   "source": {
     "id": "60a3e5b9f3f3a2001f3e8d1a",
     "url": "https://example.com",
     "autoUpdate": true,
-    "metadata": {"key": "value"}
-  }
+    "type": "WebPage",
+    "settingParams": {
+      "metadata": {"key": "value"},
+      "maxCrawlable": 500
+    }
+  },
+  "message": "Source created successfully"
+}
 ```
 </ResponseExample>
 
 <ResponseField name="source" type="object">
   The created source object.
 </ResponseField>
+
+<ResponseField name="message" type="string">
+  A success message.
+</ResponseField>
+
+<Note>
+  Source creation is subject to account limits based on subscription type:
+</Note>
