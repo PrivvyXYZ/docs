@@ -49,9 +49,9 @@
     {
       "group": "Zone",
       "pages": [
+        "api-reference/zone/create",
         "api-reference/zone/get",
         "api-reference/zone/find",
-        "api-reference/zone/create",
         "api-reference/zone/delete"
       ]
     },
@@ -61,6 +61,8 @@
         "api-reference/source/create-text",
         "api-reference/source/create-url",
         "api-reference/source/get",
+        "api-reference/source/find",
+        "api-reference/source/refresh",
         "api-reference/source/delete"
       ]
     },
