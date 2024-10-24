@@ -1,71 +1,42 @@
 ---
-title: Introduction
-description: 'Welcome to the home of your new documentation'
+title: 'Introduction'
+description: 'Welcome to the Privvy API documentation'
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+## Welcome to the Privvy API
 
-## Setting up
+Privvy provides a powerful API-based memory layer for AI applications. This documentation will guide you through the available endpoints and how to use them effectively.
 
-The first step to world-class documentation is setting up your editing environments.
+### Key Features
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+- **Powerful Search**: Retrieve relevant chunks of data from any Source within a specified Zone based on a query.
+- **Source Management**: Create, retrieve, update, and delete various types of sources (URL, plain text, etc.).
+- **Zone Organization**: Organize your data into Zones for better management and retrieval.
 
-## Make it yours
+### Getting Started
 
-Update your docs to your brand and add valuable content for the best user conversion.
+To begin using the Privvy API:
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+1. Obtain an API key through the [Privvy dashboard](https://privvy.xyz/auth).
+2. Explore the available endpoints in this documentation.
+3. Make your first API request using your preferred programming language or tool.
+
+<Card
+  title="API Reference"
+  icon="code"
+  href="/api-reference/introduction"
+>
+  Explore the full API reference
+</Card>
+
+### Authentication
+
+All API requests require authentication using Bearer tokens. Include your API key in the `Authorization` header of your requests:
+
+```bash
+Authorization: Bearer YOUR_API_KEY
+```
+
+### Need Help?
+
+If you need any assistance or have questions, don't hesitate to reach out to our support team. We're here to help you make the most of the Privvy API for your AI applications.
