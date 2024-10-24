@@ -19,3 +19,34 @@ This endpoint deletes a zone and its associated sources for the authenticated us
 </ResponseField>
 
 <RequestExample>
+
+bash Example Request
+curl -X DELETE 'https://api.yourdomain.com/zone' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-d '{"id": "60a3e5b9f3f3a2001f3e8d1a"}'
+
+</RequestExample>
+
+<ResponseExample>
+json Response
+{
+"zone": {
+"id": "60a3e5b9f3f3a2001f3e8d1a",
+"isArchived": true
+}
+}
+
+</ResponseExample>
+
+### Error Responses
+
+<ResponseField name="error" type="string">
+  Error message if the zone deletion fails.
+</ResponseField>
+
+- HTTP 500: Returned if there's a server error during zone deletion.
+
+<Note>
+  This operation also archives all associated sources and deletes related vectors.
+</Note>
