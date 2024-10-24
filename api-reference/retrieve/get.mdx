@@ -1,6 +1,164 @@
 ---
 title: 'Retrieve Memory'
-api: 'GET /retrieve'
-description: 'Remembers memories for the AI based on the input'
+api: 'POST /retrieve'
+description: 'Fetch the most relevant chunks of data from any Source within a specified Zone based on a query'
 authMethod: "bearer"
 ---
+
+This endpoint offers powerful search capabilities with optional features for fine-tuning results. It retrieves and ranks relevant documents from a specified Zone.
+
+### Body
+
+<ParamField body="content" type="string">
+  The search query or content to match against documents. Required if audio is not provided.
+</ParamField>
+
+<ParamField body="rerank" type="boolean" default="false">
+  When true, results will be re-ranked for better relevance. This acts like a "sniper" approach, providing more precise results at the cost of increased latency. It can improve LLM output by reducing irrelevant data and potentially lower costs by reducing input tokens. May result in fewer or no results, which can be beneficial for routing to fallback options.
+</ParamField>
+
+<ParamField body="expandQuery" type="boolean" default="true">
+  When true, the search query will be expanded to include related terms, potentially broadening the search results. This has 3 effects:
+  - It may return more results.
+  - It may return less relevant results.
+  - It will add latency to the request.
+</ParamField>
+
+<ParamField body="useKeywords" type="boolean" default="false">
+  When true, the search will prioritize keyword matching alongside semantic search.
+</ParamField>
+
+<ParamField body="zoneId" type="string">
+  The unique identifier of the zone to search in. Required if zoneReferenceId is not provided.
+</ParamField>
+
+<ParamField body="zoneReferenceId" type="string">
+  The reference ID of the zone to search in. Required if zoneId is not provided.
+</ParamField>
+
+<ParamField body="audio" type="object">
+  Audio data for speech-to-text search. Use this when you want to search using spoken content instead of text. Required if content is not provided.
+
+  <Expandable title="Audio Object Properties">
+    <ParamField body="data" type="string">
+      Base64 encoded audio data for speech-to-text search.
+    </ParamField>
+
+    <ParamField body="filename" type="string">
+      Name of the audio file.
+    </ParamField>
+
+    <ParamField body="encoding" type="string">
+      Encoding of the audio file.
+    </ParamField>
+
+    <ParamField body="mimetype" type="string">
+      MIME type of the audio file.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+### Response
+
+<ResponseField name="documents" type="array">
+  An array of retrieved documents.
+
+  <Expandable title="Document Properties">
+    <ResponseField name="id" type="string">
+      The unique identifier of the document.
+    </ResponseField>
+
+    <ResponseField name="content" type="string">
+      The content of the document.
+    </ResponseField>
+
+    <ResponseField name="metadata" type="object">
+      Additional metadata associated with the document.
+    </ResponseField>
+
+    <ResponseField name="score" type="number">
+      The relevance score of the document.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="intent" type="object">
+  Intent of the search query (optional).
+
+  <Expandable title="Intent Properties">
+    <ResponseField name="main_category" type="string">
+      The main category of the intent.
+    </ResponseField>
+
+    <ResponseField name="sub_category" type="string">
+      The sub category of the intent.
+    </ResponseField>
+
+    <ResponseField name="clarity_score" type="number">
+      The clarity score of the intent.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+```bash
+curl -X POST 'https://api.privvy.xyz/retrieve' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-d '{
+  "content": "What is Privvy?",
+  "rerank": true,
+  "expandQuery": false,
+  "zoneId": "6696387fb71bf922119a374f"
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "documents": [
+    {
+      "id": "doc123",
+      "content": "Privvy is an AI-powered knowledge management platform...",
+      "metadata": {
+        "source": "website",
+        "url": "https://privvy.com/about"
+      },
+      "score": 0.95
+    },
+    {
+      "id": "doc456",
+      "content": "Privvy offers features such as document retrieval, semantic search...",
+      "metadata": {
+        "source": "product_description",
+        "category": "features"
+      },
+      "score": 0.87
+    }
+  ],
+  "intent": {
+    "main_category": "General",
+    "sub_category": "FAQ",
+    "clarity_score": 0.9
+  }
+}
+```
+</ResponseExample>
+
+### Error Responses
+
+<ResponseField name="error" type="string">
+  Error message if the retrieval fails.
+</ResponseField>
+
+<ResponseField name="context" type="string">
+  Additional context about the error (optional).
+</ResponseField>
+
+- HTTP 400: Returned if required parameters are missing or invalid.
+- HTTP 500: Returned if there's a server error during retrieval.
+
+<Note>
+  Either `zoneId` or `zoneReferenceId` must be provided. Also, either `content` or `audio` is required, but not both.
+</Note>
