@@ -19,14 +19,14 @@ This endpoint retrieves zones for the authenticated user's account.
 </ResponseField>
 
 <RequestExample>
-bash Example Request
+```bash
 curl 'https://api.yourdomain.com/zone' \
 -H 'Authorization: Bearer YOUR_API_KEY'
-
+```
 </RequestExample>
 
 <ResponseExample>
-json Response
+```json
 {
 "zones": [
 {
@@ -47,7 +47,7 @@ json Response
 }
 ]
 }
-
+```
 </ResponseExample>
 
 ### Error Responses
@@ -79,10 +79,14 @@ This endpoint retrieves a specific zone by its ID for the authenticated user's a
 </ResponseField>
 
 <RequestExample>
-bash Example Request
+```bash
 curl 'https://api.yourdomain.com/zone/60a3e5b9f3f3a2001f3e8d1a' \
 -H 'Authorization: Bearer YOUR_API_KEY'
-json Response
+```
+</RequestExample>
+
+<ResponseExample>
+```json
 {
 "zone": {
 "id": "60a3e5b9f3f3a2001f3e8d1a",
@@ -93,7 +97,7 @@ json Response
 "updatedAt": "2023-05-18T12:00:00.000Z"
 }
 }
-
+```
 </ResponseExample>
 
 ### Error Responses

@@ -75,13 +75,14 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Zone",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/zone/get",
+        "api-reference/zone/create",
+        "api-reference/zone/delete"
       ]
     }
+
   ],
   "footerSocials": {
     "x": "https://x.com/mintlify",
