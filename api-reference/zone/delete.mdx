@@ -1,0 +1,21 @@
+---
+title: 'Delete Zone'
+api: 'DELETE /zone'
+description: 'Delete a zone and its associated sources'
+---
+
+This endpoint deletes a zone and its associated sources for the authenticated user's account.
+
+### Body
+
+<ParamField body="_id" type="string" required>
+  The ID of the zone to be deleted.
+</ParamField>
+
+### Response
+
+<ResponseField name="zone" type="object">
+  The deleted zone object.
+</ResponseField>
+
+<RequestExample>

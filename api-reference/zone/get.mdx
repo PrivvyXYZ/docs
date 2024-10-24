@@ -1,0 +1,21 @@
+---
+title: 'Get Zones'
+api: 'GET /zone'
+description: 'Retrieve zones for the authenticated user'
+---
+
+This endpoint retrieves zones for the authenticated user's account.
+
+### Query Parameters
+
+<ParamField query="name" type="string">
+  Optional. Filter zones by name.
+</ParamField>
+
+### Response
+
+<ResponseField name="zones" type="array">
+  An array of zone objects.
+</ResponseField>
+
+<RequestExample>

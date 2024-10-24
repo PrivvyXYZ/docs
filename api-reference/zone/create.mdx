@@ -1,0 +1,21 @@
+---
+title: 'Create Zone'
+api: 'POST /zone'
+description: 'Create a new zone'
+---
+
+This endpoint creates a new zone for the authenticated user's account.
+
+### Body
+
+<ParamField body="name" type="string" required>
+  The name of the zone to be created.
+</ParamField>
+
+### Response
+
+<ResponseField name="zone" type="object">
+  The created zone object.
+</ResponseField>
+
+<RequestExample>
