@@ -1,33 +1,44 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'Welcome to the Privvy API documentation'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Welcome to the Privvy API Specification
 
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+Privvy provides a powerful API based memory layer for AI applications. This API reference will guide you through the available endpoints and how to use them effectively.
 
 <Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
+  title="API Specification"
+  icon="file-code"
+  href="TODO: Add link to OpenAPI spec"
 >
-  View the OpenAPI specification file
+  View our OpenAPI specification file
 </Card>
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API requests require authentication using Bearer tokens. Include your API key in the `Authorization` header of your requests:
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+Authorization: Bearer YOUR_API_KEY
 ```
+
+To obtain an API key through the [Privvy dashboard](https://privvy.xyz/auth), please contact our support team.
+
+## Rate Limiting
+
+To ensure fair usage and maintain service quality, our API implements rate limiting. If you exceed the rate limit, you'll receive a 429 (Too Many Requests) response. Please refer to the response headers for information on your current rate limit status.
+
+## Error Handling
+
+Our API uses conventional HTTP response codes to indicate the success or failure of requests. Codes in the 2xx range indicate success, codes in the 4xx range indicate an error that resulted from the provided information (e.g., missing required parameters, invalid values), and codes in the 5xx range indicate an error with our servers.
+
+## Getting Started
+
+To get started with the Privvy API, follow these steps:
+
+1. Obtain an API key through the [Privvy dashboard](https://privvy.xyz/auth)
+2. Explore the available endpoints in this documentation
+3. Make your first API request using your preferred programming language or tool
+
+If you need any assistance or have questions, don't hesitate to reach out to our support team.
