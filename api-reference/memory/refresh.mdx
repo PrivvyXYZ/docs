@@ -1,0 +1,52 @@
+---
+title: 'Refresh Memory'
+api: 'PUT /memory'
+description: 'Refresh a memory'
+authMethod: "bearer"
+---
+
+This endpoint refreshes a memory for the authenticated user's account, updating its associated vectors.
+
+### Request Body
+
+<ParamField body="_id" type="string" required>
+  The ID of the memory to be refreshed.
+</ParamField>
+
+### Response
+
+<ResponseField name="message" type="string">
+  A success message indicating the refresh was successful.
+</ResponseField>
+
+<RequestExample>
+```bash
+curl -X PUT 'https://api.privvy.xyz/memory' \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-H 'Content-Type: application/json' \
+-d '{"_id": "60a3e5b9f3f3a2001f3e8d1a"}'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "message": "Refresh successful"
+}
+```
+</ResponseExample>
+
+### Error Responses
+
+<ResponseField name="error" type="string">
+  Error message if the memory refresh fails.
+</ResponseField>
+
+- HTTP 400: Returned if the memory upload is currently in progress.
+- HTTP 404: Returned if the memory is not found.
+- HTTP 500: Returned if there's a server error during memory refresh.
+
+<Note>
+  This operation updates the vectors associated with the memory. It cannot be performed if the memory is currently being uploaded.
+</Note>
+

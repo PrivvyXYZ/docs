@@ -1,42 +1,42 @@
 ---
-title: 'Create URL Source'
-api: 'POST /source/url'
-description: 'Create a new source from a URL'
+title: 'Create URL Memory'
+api: 'POST /memory/url'
+description: 'Create a new memory from a URL'
 authMethod: "bearer"
 ---
 
-This endpoint creates a new source for the authenticated user's account from a URL. It tests the URL, identifies the source type, and initiates the document processing.
+This endpoint creates a new memory for the authenticated user's account from a URL. It tests the URL, identifies the memory type, and initiates the document processing.
 
 ### Authorization
 
 <Authorization name="Authorization" type="string" required>
-  The API key to use for authentication. Must have WRITE_SOURCES permission.
+  The API key to use for authentication. Must have WRITE_MEMORYS permission.
 </Authorization>
 
 ### Body
 
 <ParamField body="url" type="string" required format="uri">
-  The URL of the website to create a source from.
+  The URL of the website to create a memory from.
 </ParamField>
 <Note>
-  Depending on the size of the website and the number of pages, it may take some time to process the source.
+  Depending on the size of the website and the number of pages, it may take some time to process the memory.
   The maximum number of pages that can be extracted is 500.
 </Note>
 
 <ParamField body="autoUpdate" type="boolean" required>
-  Whether to automatically update the source at a 24 hour interval.
+  Whether to automatically update the memory at a 24 hour interval.
 </ParamField>
 
 <ParamField body="metadata" type="object" optional>
-  Metadata to store with the source.
+  Metadata to store with the memory.
 </ParamField>
 
 <ParamField body="agentId" type="string" optional>
-  The ID of the agent to create the source in.
+  The ID of the agent to create the memory in.
 </ParamField>
 
 <ParamField body="agentReferenceId" type="string" optional>
-  The reference ID of the agent to create the source in.
+  The reference ID of the agent to create the memory in.
 </ParamField>
 
 Either `agentId` or `agentReferenceId` must be provided.
@@ -45,7 +45,7 @@ Either `agentId` or `agentReferenceId` must be provided.
 
 <RequestExample>
 ```bash
-curl -X POST 'https://api.privvy.xyz/source/url' \
+curl -X POST 'https://api.privvy.xyz/memory/url' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{"url": "https://example.com", "autoUpdate": true, "metadata": {"key": "value"}, "agentId": "agent123"}'
@@ -55,7 +55,7 @@ curl -X POST 'https://api.privvy.xyz/source/url' \
 <ResponseExample>
 ```json
 {
-  "source": {
+  "memory": {
     "id": "60a3e5b9f3f3a2001f3e8d1a",
     "url": "https://example.com",
     "autoUpdate": true,
@@ -65,13 +65,13 @@ curl -X POST 'https://api.privvy.xyz/source/url' \
       "maxCrawlable": 500
     }
   },
-  "message": "Source created successfully"
+  "message": "Memory created successfully"
 }
 ```
 </ResponseExample>
 
-<ResponseField name="source" type="object">
-  The created source object.
+<ResponseField name="memory" type="object">
+  The created memory object.
 </ResponseField>
 
 <ResponseField name="message" type="string">
@@ -79,5 +79,5 @@ curl -X POST 'https://api.privvy.xyz/source/url' \
 </ResponseField>
 
 <Note>
-  Source creation is subject to account limits based on subscription type:
+  Memory creation is subject to account limits based on subscription type:
 </Note>

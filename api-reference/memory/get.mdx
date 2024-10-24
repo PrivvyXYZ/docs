@@ -1,27 +1,27 @@
 ---
-title: 'Get Sources'
-api: 'GET /source'
-description: 'Retrieve sources for the authenticated user'
+title: 'Get MEMORYs'
+api: 'GET /memory'
+description: 'Retrieve memorys for the authenticated user'
 authMethod: "bearer"
 ---
 
-This endpoint retrieves sources for the authenticated user's account.
+This endpoint retrieves memorys for the authenticated user's account.
 
 ### Query Parameters
 
 <ParamField query="name" type="string">
-  Optional. Filter sources by name.
+  Optional. Filter memorys by name.
 </ParamField>
 
 ### Response
 
-<ResponseField name="sources" type="array">
-  An array of source objects.
+<ResponseField name="memorys" type="array">
+  An array of memory objects.
 </ResponseField>
 
 <RequestExample>
 ```bash
-curl 'https://api.privvy.xyz/source' \
+curl 'https://api.privvy.xyz/memory' \
 -H 'Authorization: Bearer YOUR_API_KEY'
 ```
 </RequestExample>
@@ -29,13 +29,13 @@ curl 'https://api.privvy.xyz/source' \
 <ResponseExample>
 ```json
 {
-"sources": [
+"memorys": [
     {
       "_id": "60a3e5b9f3f3a2001f3e8d1a",
       "account": "60a3e5b9f3f3a2001f3e8d1b",
       "type": "website",
       "identifier": "https://example.com",
-      "settingsType": "WebsiteSourceSettings",
+      "settingsType": "WebsiteMEMORYSettings",
       "autoUpdate": false,
       "settings": "60a3e5b9f3f3a2001f3e8d1c",
       "documentCount": 10,
@@ -54,7 +54,7 @@ curl 'https://api.privvy.xyz/source' \
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if retrieving sources fails.
+  Error message if retrieving memorys fails.
 </ResponseField>
 
-- HTTP 500: Returned if there's a server error while retrieving sources.
+- HTTP 500: Returned if there's a server error while retrieving memorys.

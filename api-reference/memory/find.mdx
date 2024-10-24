@@ -1,83 +1,83 @@
 ---
-title: 'Find a Source'
-api: 'GET /source/:id'
-description: 'Retrieve a specific source by its ID'
+title: 'Find a Memory'
+api: 'GET /memory/:id'
+description: 'Retrieve a specific memory by its ID'
 authMethod: "bearer"
 ---
 
-Retrieve a specific source by its ID for the authenticated user's account.
+Retrieve a specific memory by its ID for the authenticated user's account.
 
 ### Path Parameters
 
 <ParamField path="id" type="string" required>
-  The ID of the source to retrieve.
+  The ID of the memory to retrieve.
 </ParamField>
 
 ### Response
 
-<ResponseField name="source" type="object">
-  The source object with the following properties:
+<ResponseField name="memory" type="object">
+  The memory object with the following properties:
 </ResponseField>
 
 <ResponseField name="_id" type="string">
-  The unique identifier of the source.
+  The unique identifier of the memory.
 </ResponseField>
 
 <ResponseField name="account" type="string">
-  The account ID associated with the source.
+  The account ID associated with the memory.
 </ResponseField>
 
 <ResponseField name="type" type="string">
-  The type of the source. Possible values: 'website', 'pdf', 'custom', 'github', 'gitbook', 'google_doc', 'discord_messages', 'confluence', 'notion', 'PlainText'.
+  The type of the memory. Possible values: 'website', 'pdf', 'custom', 'github', 'gitbook', 'google_doc', 'discord_messages', 'confluence', 'notion', 'PlainText'.
 </ResponseField>
 
 <ResponseField name="identifier" type="string">
-  A unique identifier for the source.
+  A unique identifier for the memory.
 </ResponseField>
 
 <ResponseField name="settingsType" type="string">
-  The type of settings for the source. Possible values: 'WebsiteSourceSettings', 'PdfSourceSettings', 'CustomSourceSettings', 'GithubSourceSettings', 'GitbookSourceSettings', 'GoogleDocSourceSettings', 'DiscordMessagesSourceSettings', 'ConfluenceSourceSettings'.
+  The type of settings for the memory. Possible values: 'WebsiteMemorySettings', 'PdfMemorySettings', 'CustomMemorySettings', 'GithubMemorySettings', 'GitbookMemorySettings', 'GoogleDocMemorySettings', 'DiscordMessagesMemorySettings', 'ConfluenceMemorySettings'.
 </ResponseField>
 
 <ResponseField name="autoUpdate" type="boolean">
-  Indicates if the source is set to update automatically.
+  Indicates if the memory is set to update automatically.
 </ResponseField>
 
 <ResponseField name="settings" type="string">
-  The ID of the settings object associated with this source.
+  The ID of the settings object associated with this memory.
 </ResponseField>
 
 <ResponseField name="documentCount" type="number">
-  The number of documents in this source.
+  The number of documents in this memory.
 </ResponseField>
 
 <ResponseField name="agent" type="string">
-  The ID of the agent this source belongs to.
+  The ID of the agent this memory belongs to.
 </ResponseField>
 
 <ResponseField name="isArchived" type="boolean">
-  Indicates if the source has been archived.
+  Indicates if the memory has been archived.
 </ResponseField>
 
 <ResponseField name="chunkCount" type="number">
-  The number of chunks in this source.
+  The number of chunks in this memory.
 </ResponseField>
 
 <ResponseField name="status" type="string">
-  The current status of the source. Possible values: 'InProgress', 'Completed', 'Failed', 'CompletedWithErrors', 'Preparing'.
+  The current status of the memory. Possible values: 'InProgress', 'Completed', 'Failed', 'CompletedWithErrors', 'Preparing'.
 </ResponseField>
 
 <ResponseField name="createdAt" type="string">
-  The timestamp when the source was created.
+  The timestamp when the memory was created.
 </ResponseField>
 
 <ResponseField name="updatedAt" type="string">
-  The timestamp when the source was last updated.
+  The timestamp when the memory was last updated.
 </ResponseField>
 
 <RequestExample>
 ```bash
-curl 'https://api.privvy.xyz/source/60a3e5b9f3f3a2001f3e8d1a' \
+curl 'https://api.privvy.xyz/memory/60a3e5b9f3f3a2001f3e8d1a' \
 -H 'Authorization: Bearer YOUR_API_KEY'
 ```
 </RequestExample>
@@ -85,12 +85,12 @@ curl 'https://api.privvy.xyz/source/60a3e5b9f3f3a2001f3e8d1a' \
 <ResponseExample>
 ```json
 {
-  "source": {
+  "memory": {
     "_id": "60a3e5b9f3f3a2001f3e8d1a",
     "account": "60a3e5b9f3f3a2001f3e8d1b",
     "type": "website",
     "identifier": "https://example.com",
-    "settingsType": "WebsiteSourceSettings",
+    "settingsType": "WebsiteMemorySettings",
     "autoUpdate": false,
     "settings": "60a3e5b9f3f3a2001f3e8d1c",
     "documentCount": 10,
@@ -108,8 +108,8 @@ curl 'https://api.privvy.xyz/source/60a3e5b9f3f3a2001f3e8d1a' \
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if retrieving the source fails.
+  Error message if retrieving the memory fails.
 </ResponseField>
 
-- HTTP 404: Returned if the source is not found.
-- HTTP 500: Returned if there's a server error while retrieving the source.
+- HTTP 404: Returned if the memory is not found.
+- HTTP 500: Returned if there's a server error while retrieving the memory.

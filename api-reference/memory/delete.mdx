@@ -1,0 +1,48 @@
+---
+title: 'Delete Memory'
+api: 'DELETE /memory/:_id'
+description: 'Delete a memory'
+authMethod: "bearer"
+---
+
+This endpoint deletes (archives) a memory for the authenticated user's account and removes associated vectors.
+
+### Path Parameters
+
+<ParamField path="_id" type="string" required>
+  The ID of the memory to be deleted.
+</ParamField>
+
+### Response
+
+<ResponseField name="message" type="string">
+  A success message indicating the deletion was successful.
+</ResponseField>
+
+<RequestExample>
+```bash
+curl -X DELETE 'https://api.privvy.xyz/memory/60a3e5b9f3f3a2001f3e8d1a' \
+-H 'Authorization: Bearer YOUR_API_KEY'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "message": "Deletion successful"
+}
+```
+</ResponseExample>
+
+### Error Responses
+
+<ResponseField name="error" type="string">
+  Error message if the memory deletion fails.
+</ResponseField>
+
+- HTTP 404: Returned if the memory is not found.
+- HTTP 500: Returned if there's a server error during memory deletion.
+
+<Note>
+  This operation archives the memory by setting `isArchived` to true and deletes related vectors.
+</Note>

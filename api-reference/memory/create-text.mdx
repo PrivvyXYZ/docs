@@ -1,16 +1,16 @@
 ---
-title: 'Create Plain Text Source'
-api: 'POST /source/text'
-description: 'Create a new source from plain text'
+title: 'Create Plain Text Memory'
+api: 'POST /memory/text'
+description: 'Create a new memory from plain text'
 authMethod: "bearer"
 ---
 
-This endpoint creates a new source for the authenticated user's account from provided plain text. It preprocesses the text, generates embeddings, and stores the content in our database.
+This endpoint creates a new memory for the authenticated user's account from provided plain text. It preprocesses the text, generates embeddings, and stores the content in our database.
 
 ### Body
 
 <ParamField body="content" type="string" required>
-  The plain text content to create a source from.
+  The plain text content to create a memory from.
 </ParamField>
 
 <Note>
@@ -18,22 +18,22 @@ This endpoint creates a new source for the authenticated user's account from pro
 </Note>
 
 <ParamField body="title" type="string" optional>
-  The title of the source.
+  The title of the memory.
 </ParamField>
 
 <ParamField body="agentId" type="string" optional>
-  The ID of the agent to create the source in.
+  The ID of the agent to create the memory in.
 </ParamField>
 
 <ParamField body="agentReferenceId" type="string" optional>
-  The reference ID of the agent to create the source in.
+  The reference ID of the agent to create the memory in.
 </ParamField>
 
 ### Response
 
 <RequestExample>
 ```bash
-curl -X POST 'https://api.privvy.xyz/source/text' \
+curl -X POST 'https://api.privvy.xyz/memory/text' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{"content": "Your plain text content here", "title": "Optional Title"}'
@@ -43,7 +43,7 @@ curl -X POST 'https://api.privvy.xyz/source/text' \
 <ResponseExample>
 ```json
 {
-  "source": {
+  "memory": {
     "id": "60a3e5b9f3f3a2001f3e8d1a",
     "identifier": "abc123def456",
     "autoUpdate": false,
@@ -51,13 +51,13 @@ curl -X POST 'https://api.privvy.xyz/source/text' \
     "type": "PlainText",
     "status": "InProgress"
   },
-  "message": "Text source created successfully"
+  "message": "Text memory created successfully"
 }
 ```
 </ResponseExample>
 
-<ResponseField name="source" type="object">
-  The created source object.
+<ResponseField name="memory" type="object">
+  The created memory object.
 </ResponseField>
 
 <ResponseField name="message" type="string">
@@ -65,5 +65,5 @@ curl -X POST 'https://api.privvy.xyz/source/text' \
 </ResponseField>
 
 <Note>
-  Source creation is subject to account limits based on subscription type.
+  Memory creation is subject to account limits based on subscription type.
 </Note>

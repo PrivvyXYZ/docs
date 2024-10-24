@@ -55,14 +55,14 @@
       ]
     },
     {
-      "group": "Source",
+      "group": "Memory",
       "pages": [
-        "api-reference/source/create-text",
-        "api-reference/source/create-url",
-        "api-reference/source/get",
-        "api-reference/source/find",
-        "api-reference/source/refresh",
-        "api-reference/source/delete"
+        "api-reference/memory/create-text",
+        "api-reference/memory/create-url",
+        "api-reference/memory/get",
+        "api-reference/memory/find",
+        "api-reference/memory/refresh",
+        "api-reference/memory/delete"
       ]
     },
     {

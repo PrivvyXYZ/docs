@@ -23,12 +23,12 @@ curl -X POST 'https://api.privvy.xyz/agent' \
 
 Save the `id` from the response for later use.
 
-## Step 3: Add a Source
+## Step 3: Add a Memory
 
-Now, let's add a URL source to your agent:
+Now, let's add a URL memory to your agent:
 
 ```bash
-curl -X POST 'https://api.privvy.xyz/source/url' \
+curl -X POST 'https://api.privvy.xyz/memory/url' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{
@@ -40,7 +40,7 @@ curl -X POST 'https://api.privvy.xyz/source/url' \
 
 ## Step 4: Retrieve Information
 
-After adding a source, you can retrieve information from it:
+After adding a memory, you can retrieve information from it:
 
 ```bash
 curl -X POST 'https://api.privvy.xyz/retrieve' \
@@ -56,9 +56,9 @@ This will return relevant chunks of information based on your query.
 
 ## Next Steps
 
-Congratulations! You've now created a agent, added a source, and retrieved information using the Privvy API. Here are some next steps:
+Congratulations! You've now created a agent, added a memory, and retrieved information using the Privvy API. Here are some next steps:
 
-- Explore other source types like plain text or PDF
+- Explore other memory types like plain text or PDF
 - Learn about advanced retrieval options like reranking and query expansion
 - Integrate the API into your application
 
