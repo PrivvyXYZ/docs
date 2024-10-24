@@ -46,12 +46,12 @@
       ]
     },
     {
-      "group": "Zone",
+      "group": "Agent",
       "pages": [
-        "api-reference/zone/create",
-        "api-reference/zone/get",
-        "api-reference/zone/find",
-        "api-reference/zone/delete"
+        "api-reference/agent/create",
+        "api-reference/agent/get",
+        "api-reference/agent/find",
+        "api-reference/agent/delete"
       ]
     },
     {

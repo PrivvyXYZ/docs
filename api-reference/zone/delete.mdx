@@ -1,27 +1,27 @@
 ---
-title: 'Delete Zone'
-api: 'DELETE /zone'
-description: 'Delete a zone and its associated sources'
+title: 'Delete Agent'
+api: 'DELETE /agent'
+description: 'Delete a agent and its associated sources'
 authMethod: "bearer"
 ---
 
-This endpoint deletes a zone and its associated sources for the authenticated user's account.
+This endpoint deletes a agent and its associated sources for the authenticated user's account.
 
 ### Body
 
 <ParamField body="_id" type="string" required>
-  The ID of the zone to be deleted.
+  The ID of the agent to be deleted.
 </ParamField>
 
 ### Response
 
-<ResponseField name="zone" type="object">
-  The deleted zone object.
+<ResponseField name="agent" type="object">
+  The deleted agent object.
 </ResponseField>
 
 <RequestExample>
 ```bash
-curl -X DELETE 'https://api.privvy.xyz/zone' \
+curl -X DELETE 'https://api.privvy.xyz/agent' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{"id": "60a3e5b9f3f3a2001f3e8d1a"}'
@@ -31,7 +31,7 @@ curl -X DELETE 'https://api.privvy.xyz/zone' \
 <ResponseExample>
 ```json
 {
-  "zone": {
+  "agent": {
     "id": "60a3e5b9f3f3a2001f3e8d1a",
     "isArchived": true
   }
@@ -42,10 +42,10 @@ curl -X DELETE 'https://api.privvy.xyz/zone' \
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if the zone deletion fails.
+  Error message if the agent deletion fails.
 </ResponseField>
 
-- HTTP 500: Returned if there's a server error during zone deletion.
+- HTTP 500: Returned if there's a server error during agent deletion.
 
 <Note>
   This operation also archives all associated sources and deletes related vectors.

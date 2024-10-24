@@ -1,11 +1,11 @@
 ---
 title: 'Retrieve Memory'
 api: 'POST /retrieve'
-description: 'Fetch the most relevant chunks of data from any Source within a specified Zone based on a query'
+description: 'Fetch the most relevant chunks of data from any Source within a specified Agent based on a query'
 authMethod: "bearer"
 ---
 
-This endpoint offers powerful search capabilities with optional features for fine-tuning results. It retrieves and ranks relevant documents from a specified Zone.
+This endpoint offers powerful search capabilities with optional features for fine-tuning results. It retrieves and ranks relevant documents from a specified Agent.
 
 ### Body
 
@@ -28,12 +28,12 @@ This endpoint offers powerful search capabilities with optional features for fin
   When true, the search will prioritize keyword matching alongside semantic search.
 </ParamField>
 
-<ParamField body="zoneId" type="string">
-  The unique identifier of the zone to search in. Required if zoneReferenceId is not provided.
+<ParamField body="agentId" type="string">
+  The unique identifier of the agent to search in. Required if agentReferenceId is not provided.
 </ParamField>
 
-<ParamField body="zoneReferenceId" type="string">
-  The reference ID of the zone to search in. Required if zoneId is not provided.
+<ParamField body="agentReferenceId" type="string">
+  The reference ID of the agent to search in. Required if agentId is not provided.
 </ParamField>
 
 <ParamField body="audio" type="object">
@@ -109,7 +109,7 @@ curl -X POST 'https://api.privvy.xyz/retrieve' \
   "content": "What is Privvy?",
   "rerank": true,
   "expandQuery": false,
-  "zoneId": "6696387fb71bf922119a374f"
+  "agentId": "6696387fb71bf922119a374f"
 }'
 ```
 </RequestExample>
@@ -160,5 +160,5 @@ curl -X POST 'https://api.privvy.xyz/retrieve' \
 - HTTP 500: Returned if there's a server error during retrieval.
 
 <Note>
-  Either `zoneId` or `zoneReferenceId` must be provided. Also, either `content` or `audio` is required, but not both.
+  Either `agentId` or `agentReferenceId` must be provided. Also, either `content` or `audio` is required, but not both.
 </Note>

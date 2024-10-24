@@ -51,8 +51,8 @@ Retrieve a specific source by its ID for the authenticated user's account.
   The number of documents in this source.
 </ResponseField>
 
-<ResponseField name="zone" type="string">
-  The ID of the zone this source belongs to.
+<ResponseField name="agent" type="string">
+  The ID of the agent this source belongs to.
 </ResponseField>
 
 <ResponseField name="isArchived" type="boolean">
@@ -94,7 +94,7 @@ curl 'https://api.privvy.xyz/source/60a3e5b9f3f3a2001f3e8d1a' \
     "autoUpdate": false,
     "settings": "60a3e5b9f3f3a2001f3e8d1c",
     "documentCount": 10,
-    "zone": "60a3e5b9f3f3a2001f3e8d1d",
+    "agent": "60a3e5b9f3f3a2001f3e8d1d",
     "isArchived": false,
     "chunkCount": 100,
     "status": "Completed",

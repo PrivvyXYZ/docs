@@ -1,30 +1,30 @@
 ---
-title: 'Create Zone'
-api: 'POST /zone'
-description: 'Create a new zone'
+title: 'Create Agent'
+api: 'POST /agent'
+description: 'Create a new agent'
 authMethod: "bearer"
 ---
 
-This endpoint creates a new zone for the authenticated user's account.
+This endpoint creates a new agent for the authenticated user's account.
 
 ### Body
 
 <ParamField body="name" type="string" required>
-  The name of the zone to be created.
+  The name of the agent to be created.
 </ParamField>
 
 ### Response
 
-<ResponseField name="zone" type="object">
-  The created zone object.
+<ResponseField name="agent" type="object">
+  The created agent object.
 </ResponseField>
 
 <RequestExample>
 ```bash
-curl -X POST 'https://api.privvy.xyz/zone' \
+curl -X POST 'https://api.privvy.xyz/agent' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
--d '{"name": "My New Zone"}'
+-d '{"name": "My New Agent"}'
 ```
 </RequestExample>
 
@@ -32,9 +32,9 @@ curl -X POST 'https://api.privvy.xyz/zone' \
 ```
 json Response
 {
-  "zone": {
+  "agent": {
     "id": "60a3e5b9f3f3a2001f3e8d1a",
-    "name": "My New Zone",
+    "name": "My New Agent",
     "account": "60a3e5b9f3f3a2001f3e8d1b",
     "createdBy": "60a3e5b9f3f3a2001f3e8d1c",
     "createdAt": "2023-05-18T12:00:00.000Z",
@@ -47,9 +47,9 @@ json Response
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if the zone creation fails.
+  Error message if the agent creation fails.
 </ResponseField>
 
-- HTTP 403: Returned if the user doesn't have the required subscription or has reached the zone limit.
-- HTTP 409: Returned if a zone with the same name already exists.
-- HTTP 500: Returned if there's a server error during zone creation.
+- HTTP 403: Returned if the user doesn't have the required subscription or has reached the agent limit.
+- HTTP 409: Returned if a agent with the same name already exists.
+- HTTP 500: Returned if there's a server error during agent creation.

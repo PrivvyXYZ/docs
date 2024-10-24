@@ -1,27 +1,27 @@
 ---
-title: 'Get Zone by ID'
-api: 'GET /zone/{_id}'
-description: 'Retrieve a specific zone by its ID'
+title: 'Get Agent by ID'
+api: 'GET /agent/{_id}'
+description: 'Retrieve a specific agent by its ID'
 authMethod: "bearer"
 ---
 
-This endpoint retrieves a specific zone by its ID for the authenticated user's account.
+This endpoint retrieves a specific agent by its ID for the authenticated user's account.
 
 ### Path Parameters
 
 <ParamField path="_id" type="string" required>
-  The ID of the zone to retrieve.
+  The ID of the agent to retrieve.
 </ParamField>
 
 ### Response
 
-<ResponseField name="zone" type="object">
-  The retrieved zone object.
+<ResponseField name="agent" type="object">
+  The retrieved agent object.
 </ResponseField>
 
 <RequestExample>
 ```bash
-curl 'https://api.privvy.xyz/zone/60a3e5b9f3f3a2001f3e8d1a' \
+curl 'https://api.privvy.xyz/agent/60a3e5b9f3f3a2001f3e8d1a' \
 -H 'Authorization: Bearer YOUR_API_KEY'
 ```
 </RequestExample>
@@ -29,9 +29,9 @@ curl 'https://api.privvy.xyz/zone/60a3e5b9f3f3a2001f3e8d1a' \
 <ResponseExample>
 ```json
 {
-  "zone": {
+  "agent": {
     "id": "60a3e5b9f3f3a2001f3e8d1a",
-    "name": "My Zone",
+    "name": "My Agent",
     "account": "60a3e5b9f3f3a2001f3e8d1b",
     "createdBy": "60a3e5b9f3f3a2001f3e8d1c",
     "createdAt": "2023-05-18T12:00:00.000Z",
@@ -44,7 +44,7 @@ curl 'https://api.privvy.xyz/zone/60a3e5b9f3f3a2001f3e8d1a' \
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if retrieving the zone fails.
+  Error message if retrieving the agent fails.
 </ResponseField>
 
-- HTTP 500: Returned if there's a server error while retrieving the zone.
+- HTTP 500: Returned if there's a server error while retrieving the agent.

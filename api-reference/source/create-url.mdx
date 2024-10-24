@@ -31,15 +31,15 @@ This endpoint creates a new source for the authenticated user's account from a U
   Metadata to store with the source.
 </ParamField>
 
-<ParamField body="zoneId" type="string" optional>
-  The ID of the zone to create the source in.
+<ParamField body="agentId" type="string" optional>
+  The ID of the agent to create the source in.
 </ParamField>
 
-<ParamField body="zoneReferenceId" type="string" optional>
-  The reference ID of the zone to create the source in.
+<ParamField body="agentReferenceId" type="string" optional>
+  The reference ID of the agent to create the source in.
 </ParamField>
 
-Either `zoneId` or `zoneReferenceId` must be provided.
+Either `agentId` or `agentReferenceId` must be provided.
 
 ### Response
 
@@ -48,7 +48,7 @@ Either `zoneId` or `zoneReferenceId` must be provided.
 curl -X POST 'https://api.privvy.xyz/source/url' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
--d '{"url": "https://example.com", "autoUpdate": true, "metadata": {"key": "value"}, "zoneId": "zone123"}'
+-d '{"url": "https://example.com", "autoUpdate": true, "metadata": {"key": "value"}, "agentId": "agent123"}'
 ```
 </RequestExample>
 
