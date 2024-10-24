@@ -7,18 +7,18 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#2F00FF",
+    "light": "#4D24FF",
+    "dark": "#1E00B3",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#2F00FF",
+      "to": "#4D24FF"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:privvy@mava.email"
     }
   ],
   "topbarCtaButton": {
@@ -78,6 +78,7 @@
       "group": "Zone",
       "pages": [
         "api-reference/zone/get",
+        "api-reference/zone/find",
         "api-reference/zone/create",
         "api-reference/zone/delete"
       ]

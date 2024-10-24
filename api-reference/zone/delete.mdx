@@ -20,7 +20,7 @@ This endpoint deletes a zone and its associated sources for the authenticated us
 
 <RequestExample>
 ```bash
-curl -X DELETE 'https://api.yourdomain.com/zone' \
+curl -X DELETE 'https://api.privvy.xyz/zone' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{"id": "60a3e5b9f3f3a2001f3e8d1a"}'
@@ -30,10 +30,10 @@ curl -X DELETE 'https://api.yourdomain.com/zone' \
 <ResponseExample>
 ```json
 {
-"zone": {
-"id": "60a3e5b9f3f3a2001f3e8d1a",
-"isArchived": true
-}
+  "zone": {
+    "id": "60a3e5b9f3f3a2001f3e8d1a",
+    "isArchived": true
+  }
 }
 ```
 </ResponseExample>

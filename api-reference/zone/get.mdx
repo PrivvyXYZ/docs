@@ -20,7 +20,7 @@ This endpoint retrieves zones for the authenticated user's account.
 
 <RequestExample>
 ```bash
-curl 'https://api.yourdomain.com/zone' \
+curl 'https://api.privvy.xyz/zone' \
 -H 'Authorization: Bearer YOUR_API_KEY'
 ```
 </RequestExample>
@@ -29,23 +29,23 @@ curl 'https://api.yourdomain.com/zone' \
 ```json
 {
 "zones": [
-{
-"id": "60a3e5b9f3f3a2001f3e8d1a",
-"name": "My Zone",
-"account": "60a3e5b9f3f3a2001f3e8d1b",
-"createdBy": "60a3e5b9f3f3a2001f3e8d1c",
-"createdAt": "2023-05-18T12:00:00.000Z",
-"updatedAt": "2023-05-18T12:00:00.000Z"
-},
-{
-"id": "60a3e5b9f3f3a2001f3e8d1d",
-"name": "Another Zone",
-"account": "60a3e5b9f3f3a2001f3e8d1b",
-"createdBy": "60a3e5b9f3f3a2001f3e8d1c",
-"createdAt": "2023-05-18T13:00:00.000Z",
-"updatedAt": "2023-05-18T13:00:00.000Z"
-}
-]
+    {
+      "id": "60a3e5b9f3f3a2001f3e8d1a",
+      "name": "My Zone",
+      "account": "60a3e5b9f3f3a2001f3e8d1b",
+      "createdBy": "60a3e5b9f3f3a2001f3e8d1c",
+      "createdAt": "2023-05-18T12:00:00.000Z",
+      "updatedAt": "2023-05-18T12:00:00.000Z"
+    },
+    {
+      "id": "60a3e5b9f3f3a2001f3e8d1d",
+      "name": "Another Zone",
+      "account": "60a3e5b9f3f3a2001f3e8d1b",
+      "createdBy": "60a3e5b9f3f3a2001f3e8d1c",
+      "createdAt": "2023-05-18T13:00:00.000Z",
+      "updatedAt": "2023-05-18T13:00:00.000Z"
+    }
+  ]
 }
 ```
 </ResponseExample>
@@ -57,53 +57,3 @@ curl 'https://api.yourdomain.com/zone' \
 </ResponseField>
 
 - HTTP 500: Returned if there's a server error while retrieving zones.
-
----
-title: 'Get Zone by ID'
-api: 'GET /zone/{_id}'
-description: 'Retrieve a specific zone by its ID'
----
-
-This endpoint retrieves a specific zone by its ID for the authenticated user's account.
-
-### Path Parameters
-
-<ParamField path="_id" type="string" required>
-  The ID of the zone to retrieve.
-</ParamField>
-
-### Response
-
-<ResponseField name="zone" type="object">
-  The retrieved zone object.
-</ResponseField>
-
-<RequestExample>
-```bash
-curl 'https://api.yourdomain.com/zone/60a3e5b9f3f3a2001f3e8d1a' \
--H 'Authorization: Bearer YOUR_API_KEY'
-```
-</RequestExample>
-
-<ResponseExample>
-```json
-{
-"zone": {
-"id": "60a3e5b9f3f3a2001f3e8d1a",
-"name": "My Zone",
-"account": "60a3e5b9f3f3a2001f3e8d1b",
-"createdBy": "60a3e5b9f3f3a2001f3e8d1c",
-"createdAt": "2023-05-18T12:00:00.000Z",
-"updatedAt": "2023-05-18T12:00:00.000Z"
-}
-}
-```
-</ResponseExample>
-
-### Error Responses
-
-<ResponseField name="error" type="string">
-  Error message if retrieving the zone fails.
-</ResponseField>
-
-- HTTP 500: Returned if there's a server error while retrieving the zone.
