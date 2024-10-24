@@ -23,29 +23,12 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://dashboard.privvy.xyz"
   },
   "tabs": [
     {
       "name": "API Reference",
       "url": "api-reference"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
     }
   ],
   "navigation": [
@@ -55,17 +38,6 @@
         "introduction",
         "quickstart",
         "development"
-      ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
       ]
     },
     {
@@ -86,21 +58,21 @@
     {
       "group": "Source",
       "pages": [
+        "api-reference/source/create-text",
+        "api-reference/source/create-url",
         "api-reference/source/get",
-        "api-reference/source/create",
         "api-reference/source/delete"
       ]
     },
     {
       "group": "Retrieval",
       "pages": [
-        "api-reference/retrieve/"
+        "api-reference/retrieve/get"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "x": "https://x.com/privvyxyz",
+    "github": "https://github.com/privvyxyz"
   }
 }

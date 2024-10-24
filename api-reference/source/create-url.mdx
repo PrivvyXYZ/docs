@@ -1,0 +1,65 @@
+---
+title: 'Create URL Source'
+api: 'POST /source/url'
+description: 'Create a new source from a URL'
+authMethod: "bearer"
+---
+
+This endpoint creates a new source for the authenticated user's account from a URL. It scrapes the website, extracts the text, preprocesses the text, and stores the content in the privvy database.
+
+### Authorization
+
+<Authorization name="Authorization" type="string" required>
+  The API key to use for authentication.
+</Authorization>
+
+### Body
+
+<ParamField body="url" type="string" required>
+  The URL of the website to create a source from.
+</ParamField>
+
+<ParamField body="autoUpdate" type="boolean" required>
+  Whether to automatically update the source. This will happen periodically at a 24 hour interval.
+</ParamField>
+
+<ParamField body="metadata" type="object" optional>
+  Metadata to store with the source.
+</ParamField>
+
+<ParamField body="zoneId" type="string" optional>
+  The ID of the zone to create the source in.
+</ParamField>
+
+<ParamField body="zoneReferenceId" type="string" optional>
+  The reference ID of the zone to create the source in.
+</ParamField>
+
+One of `zoneId` or `zoneReferenceId` is required.
+
+### Response
+
+<RequestExample>
+```bash
+curl -X POST 'https://api.privvy.xyz/source/url' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-d '{"url": "https://example.com", "autoUpdate": true, "metadata": {"key": "value"}}'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+  {
+  "source": {
+    "id": "60a3e5b9f3f3a2001f3e8d1a",
+    "url": "https://example.com",
+    "autoUpdate": true,
+    "metadata": {"key": "value"}
+  }
+```
+</ResponseExample>
+
+<ResponseField name="source" type="object">
+  The created source object.
+</ResponseField>

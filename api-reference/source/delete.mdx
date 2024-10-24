@@ -1,27 +1,27 @@
 ---
-title: 'Delete Zone'
-api: 'DELETE /zone'
-description: 'Delete a zone and its associated sources'
+title: 'Delete Source'
+api: 'DELETE /source'
+description: 'Delete a source'
 authMethod: "bearer"
 ---
 
-This endpoint deletes a zone and its associated sources for the authenticated user's account.
+This endpoint deletes a source for the authenticated user's account.
 
 ### Body
 
 <ParamField body="_id" type="string" required>
-  The ID of the zone to be deleted.
+  The ID of the source to be deleted.
 </ParamField>
 
 ### Response
 
-<ResponseField name="zone" type="object">
-  The deleted zone object.
+<ResponseField name="source" type="object">
+  The deleted source object.
 </ResponseField>
 
 <RequestExample>
 ```bash
-curl -X DELETE 'https://api.privvy.xyz/zone' \
+curl -X DELETE 'https://api.privvy.xyz/source' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{"id": "60a3e5b9f3f3a2001f3e8d1a"}'
@@ -31,7 +31,7 @@ curl -X DELETE 'https://api.privvy.xyz/zone' \
 <ResponseExample>
 ```json
 {
-  "zone": {
+  "source": {
     "id": "60a3e5b9f3f3a2001f3e8d1a",
     "isArchived": true
   }

@@ -1,27 +1,27 @@
 ---
-title: 'Get Zones'
-api: 'GET /zone'
-description: 'Retrieve zones for the authenticated user'
+title: 'Get Sources'
+api: 'GET /source'
+description: 'Retrieve sources for the authenticated user'
 authMethod: "bearer"
 ---
 
-This endpoint retrieves zones for the authenticated user's account.
+This endpoint retrieves sources for the authenticated user's account.
 
 ### Query Parameters
 
 <ParamField query="name" type="string">
-  Optional. Filter zones by name.
+  Optional. Filter sources by name.
 </ParamField>
 
 ### Response
 
-<ResponseField name="zones" type="array">
-  An array of zone objects.
+<ResponseField name="sources" type="array">
+  An array of source objects.
 </ResponseField>
 
 <RequestExample>
 ```bash
-curl 'https://api.privvy.xyz/zone' \
+curl 'https://api.privvy.xyz/source' \
 -H 'Authorization: Bearer YOUR_API_KEY'
 ```
 </RequestExample>
@@ -29,7 +29,7 @@ curl 'https://api.privvy.xyz/zone' \
 <ResponseExample>
 ```json
 {
-"zones": [
+"sources": [
     {
       "id": "60a3e5b9f3f3a2001f3e8d1a",
       "name": "My Zone",
@@ -54,7 +54,7 @@ curl 'https://api.privvy.xyz/zone' \
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if retrieving zones fails.
+  Error message if retrieving sources fails.
 </ResponseField>
 
-- HTTP 500: Returned if there's a server error while retrieving zones.
+- HTTP 500: Returned if there's a server error while retrieving sources.
