@@ -1,0 +1,66 @@
+---
+title: 'Update Persona'
+api: 'PUT /persona'
+description: 'Update the contents of a persona document'
+authMethod: "bearer"
+---
+
+This endpoint updates an existing persona document for the authenticated user's account.
+
+### Body
+
+<ParamField body="agent" type="string" required>
+  The unique identifier of the agent.
+</ParamField>
+
+<ParamField body="_id" type="string" required>
+  The unique identifier of the persona document to update.
+</ParamField>
+
+<ParamField body="name" type="string">
+  The new name or identifier of the persona document.
+</ParamField>
+
+<ParamField body="metadata" type="object">
+  Updated metadata for the persona document as key-value pairs.
+</ParamField>
+
+### Response
+
+<ResponseField name="message" type="string">
+  A success message indicating the persona was updated.
+</ResponseField>
+
+<RequestExample>
+```bash
+curl -X PUT 'https://api.privvy.xyz/persona' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-d '{
+  "agent": "60a3b4c5d6e7f8g9h0i1j2k3",
+  "id": "60a3e5b9f3f3a2001f3e8d1a",
+  "name": "Jane Doe",
+  "metadata": {
+    "account type": "premium plus"
+  }
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+```json Response
+{
+  "message": "Persona updated successfully"
+}
+```
+</ResponseExample>
+
+### Error Responses
+
+<ResponseField name="error" type="string">
+  Error message if the persona update fails.
+</ResponseField>
+
+- HTTP 400: Returned if the persona document is not updated.
+- HTTP 404: Returned if the specified persona is not found.
+- HTTP 500: Returned if there's a server error during persona update.

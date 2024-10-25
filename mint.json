@@ -55,6 +55,15 @@
       ]
     },
     {
+      "group": "Persona",
+      "pages": [
+        "api-reference/persona/create",
+        "api-reference/persona/get",
+        "api-reference/persona/find",
+        "api-reference/persona/delete"
+      ]
+    },
+    {
       "group": "Memory",
       "pages": [
         "api-reference/memory/create-text",
@@ -66,9 +75,9 @@
       ]
     },
     {
-      "group": "Retrieval",
+      "group": "Search",
       "pages": [
-        "api-reference/retrieve/get"
+        "api-reference/search/get"
       ]
     }
   ],

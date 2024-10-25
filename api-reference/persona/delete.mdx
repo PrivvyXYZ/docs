@@ -1,0 +1,68 @@
+---
+title: 'Delete Persona'
+api: 'DELETE /persona/{_id}'
+description: 'Delete a persona document from the account'
+authMethod: "bearer"
+---
+
+This endpoint deletes (archives) a persona for the authenticated user's account.
+
+### Path Parameters
+
+<ParamField path="_id" type="string" required>
+  The unique identifier of the persona to delete.
+</ParamField>
+
+### Response
+
+<ResponseField name="message" type="string">
+  Success message confirming the deletion.
+</ResponseField>
+
+<RequestExample>
+```bash
+curl -X DELETE 'https://api.privvy.xyz/persona/60a3b4c5d6e7f8g9h0i1j2k3' \
+-H 'Authorization: Bearer YOUR_API_KEY'
+```
+</RequestExample>
+
+<ResponseExample>
+```json
+{
+  "message": "Deletion successful"
+}
+```
+</ResponseExample>
+
+### Error Responses
+
+<ResponseField name="error" type="string">
+  Error message if the persona deletion fails.
+</ResponseField>
+
+<ResponseField name="context" type="string">
+  Optional. Additional context for the error.
+</ResponseField>
+
+- HTTP 404: Returned if the persona is not found.
+- HTTP 500: Returned if there's a server error during persona deletion.
+
+<ResponseExample>
+```json
+{
+  "error": "Persona not found"
+}
+```
+</ResponseExample>
+
+<ResponseExample>
+```json
+{
+  "error": "Failed to delete persona 60a3b4c5d6e7f8g9h0i1j2k3"
+}
+```
+</ResponseExample>
+
+<Note>
+  This operation archives the persona by setting its `isArchived` flag to true, rather than permanently deleting it from the database.
+</Note>

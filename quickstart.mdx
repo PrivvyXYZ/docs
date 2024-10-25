@@ -38,12 +38,12 @@ curl -X POST 'https://api.privvy.xyz/memory/create/url' \
 }'
 ```
 
-## Step 4: Retrieve Information
+## Step 4: Search Information
 
-After adding a memory, you can retrieve information from it:
+After adding a memory, you can search information from it:
 
 ```bash
-curl -X POST 'https://api.privvy.xyz/retrieve' \
+curl -X POST 'https://api.privvy.xyz/search' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{

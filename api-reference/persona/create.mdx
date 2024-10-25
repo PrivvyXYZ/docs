@@ -1,0 +1,71 @@
+---
+title: 'Create Persona'
+api: 'POST /persona'
+description: 'Create a new persona document'
+authMethod: "bearer"
+---
+
+This endpoint creates a new persona document for the authenticated user's account.
+
+### Body
+
+<ParamField body="agent" type="string" required>
+  The unique identifier of the agent.
+</ParamField>
+
+<ParamField body="name" type="string">
+  The name or identifier of the persona document.
+</ParamField>
+
+<ParamField body="metadata" type="object">
+  Metadata for the persona document as key-value pairs.
+</ParamField>
+
+### Response
+
+<ResponseField name="persona" type="object">
+  The created persona document object.
+</ResponseField>
+
+<RequestExample>
+```bash
+curl -X POST 'https://api.privvy.xyz/persona' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer YOUR_API_KEY' \
+-d '{
+  "agent": "60a3b4c5d6e7f8g9h0i1j2k3",
+  "name": "John Doe",
+  "metadata": {
+    "account type": "premium"
+  }
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+```json Response
+{
+  "persona": {
+    "id": "60a3e5b9f3f3a2001f3e8d1a",
+    "name": "John Doe",
+    "agent": "60a3b4c5d6e7f8g9h0i1j2k3",
+    "account": "60a3e5b9f3f3a2001f3e8d1b",
+    "metadata": {
+      "account type": "premium"
+    },
+    "createdAt": "2023-05-18T12:00:00.000Z",
+    "updatedAt": "2023-05-18T12:00:00.000Z"
+  }
+}
+```
+</ResponseExample>
+
+### Error Responses
+
+<ResponseField name="error" type="string">
+  Error message if the persona creation fails.
+</ResponseField>
+
+- HTTP 400: Returned if the persona document is not created.
+- HTTP 404: Returned if the specified agent is not found.
+- HTTP 500: Returned if there's a server error during persona creation.

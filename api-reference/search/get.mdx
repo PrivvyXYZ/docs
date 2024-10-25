@@ -1,6 +1,6 @@
 ---
-title: 'Retrieve Memory'
-api: 'POST /retrieve'
+title: 'Search Memory'
+api: 'POST /search'
 description: 'Fetch the most relevant chunks of data from any Memory within a specified Agent based on a query'
 authMethod: "bearer"
 ---
@@ -102,7 +102,7 @@ This endpoint offers powerful search capabilities with optional features for fin
 
 <RequestExample>
 ```bash
-curl -X POST 'https://api.privvy.xyz/retrieve' \
+curl -X POST 'https://api.privvy.xyz/search' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{
@@ -149,7 +149,7 @@ curl -X POST 'https://api.privvy.xyz/retrieve' \
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if the retrieval fails.
+  Error message if the search fails.
 </ResponseField>
 
 <ResponseField name="context" type="string">
@@ -157,7 +157,7 @@ curl -X POST 'https://api.privvy.xyz/retrieve' \
 </ResponseField>
 
 - HTTP 400: Returned if required parameters are missing or invalid.
-- HTTP 500: Returned if there's a server error during retrieval.
+- HTTP 500: Returned if there's a server error during search.
 
 <Note>
   Either `agentId` or `agentReferenceId` must be provided. Also, either `content` or `audio` is required, but not both.
