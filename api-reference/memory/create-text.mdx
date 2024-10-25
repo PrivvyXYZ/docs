@@ -21,34 +21,26 @@ This endpoint creates a new memory for the authenticated user's account from pro
   The title of the memory.
 </ParamField>
 
+<ParamField body="personaId" type="string" optional>
+  The ID of the persona to create the memory for.
+</ParamField>
+
 <ParamField body="agentId" type="string" optional>
-  The ID of the agent to create the memory in.
+  The ID of the agent to create the memory for.
 </ParamField>
 
 <ParamField body="agentReferenceId" type="string" optional>
-  The reference ID of the agent to create the memory in.
+  The reference ID of the agent to create the memory for.
 </ParamField>
 
 ### Response
 
-<RequestExample>
+<RequestExample bash>
 ```bash
 curl -X POST 'https://api.privvy.xyz/memory/text' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{"content": "Your plain text content here", "title": "Optional Title", "agentId": "agent123", "agentReferenceId": "agent123", "personaId": "persona123"}'
-```
-</RequestExample>
-
-<RequestExample>
-```json
-{
-  "content": "Your plain text content here",
-  "title": "Optional Title",
-  "agentId": "agent123",
-  "agentReferenceId": "agent123",
-  "personaId": "persona123"
-}
 ```
 </RequestExample>
 

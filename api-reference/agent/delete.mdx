@@ -1,11 +1,11 @@
 ---
 title: 'Delete Agent'
 api: 'DELETE /agent'
-description: 'Delete a agent and its associated memorys'
+description: 'Delete a agent and its associated memories'
 authMethod: "bearer"
 ---
 
-This endpoint deletes a agent and its associated memorys for the authenticated user's account.
+This endpoint deletes a agent and its associated memories for the authenticated user's account.
 
 ### Body
 
@@ -48,5 +48,5 @@ curl -X DELETE 'https://api.privvy.xyz/agent' \
 - HTTP 500: Returned if there's a server error during agent deletion.
 
 <Note>
-  This operation also archives all associated memorys and deletes related vectors.
+  This operation also archives all associated memories and deletes related vectors.
 </Note>

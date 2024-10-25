@@ -1,21 +1,21 @@
 ---
-title: 'Get MEMORYs'
+title: 'Get Memories'
 api: 'GET /memory'
-description: 'Retrieve memorys for the authenticated user'
+description: 'Retrieve memories for the authenticated user'
 authMethod: "bearer"
 ---
 
-This endpoint retrieves memorys for the authenticated user's account.
+This endpoint retrieves memories for the authenticated user's account.
 
 ### Query Parameters
 
 <ParamField query="name" type="string">
-  Optional. Filter memorys by name.
+  Optional. Filter memories by name.
 </ParamField>
 
 ### Response
 
-<ResponseField name="memorys" type="array">
+<ResponseField name="memories" type="array">
   An array of memory objects.
 </ResponseField>
 
@@ -29,7 +29,7 @@ curl 'https://api.privvy.xyz/memory' \
 <ResponseExample>
 ```json
 {
-"memorys": [
+"memories": [
     {
       "_id": "60a3e5b9f3f3a2001f3e8d1a",
       "account": "60a3e5b9f3f3a2001f3e8d1b",
@@ -54,7 +54,7 @@ curl 'https://api.privvy.xyz/memory' \
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if retrieving memorys fails.
+  Error message if retrieving memories fails.
 </ResponseField>
 
-- HTTP 500: Returned if there's a server error while retrieving memorys.
+- HTTP 500: Returned if there's a server error while retrieving memories.
