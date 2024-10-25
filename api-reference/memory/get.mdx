@@ -9,8 +9,20 @@ This endpoint retrieves memories for the authenticated user's account.
 
 ### Query Parameters
 
-<ParamField query="name" type="string">
-  Optional. Filter memories by name.
+<ParamField query="page" type="number">
+  Optional. The page number for pagination. Minimum value is 1. Default is 1.
+</ParamField>
+
+<ParamField query="limit" type="number">
+  Optional. The number of memories to return per page. Minimum value is 1, maximum is 100. Default is 20.
+</ParamField>
+
+<ParamField query="agent" type="string">
+  Optional. Filter memories by agent ID.
+</ParamField>
+
+<ParamField query="persona" type="string">
+  Optional. Filter memories by persona ID.
 </ParamField>
 
 ### Response
@@ -19,9 +31,27 @@ This endpoint retrieves memories for the authenticated user's account.
   An array of memory objects.
 </ResponseField>
 
+<ResponseField name="pagination" type="object">
+  Pagination information.
+  <Expandable title="properties">
+    <ResponseField name="currentPage" type="number">
+      The current page number.
+    </ResponseField>
+    <ResponseField name="totalPages" type="number">
+      The total number of pages.
+    </ResponseField>
+    <ResponseField name="totalCount" type="number">
+      The total number of memories matching the query.
+    </ResponseField>
+    <ResponseField name="limit" type="number">
+      The number of memories per page.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
 <RequestExample>
 ```bash
-curl 'https://api.privvy.xyz/memory' \
+curl 'https://api.privvy.xyz/memory?page=1&limit=20' \
 -H 'Authorization: Bearer YOUR_API_KEY'
 ```
 </RequestExample>
@@ -29,7 +59,7 @@ curl 'https://api.privvy.xyz/memory' \
 <ResponseExample>
 ```json
 {
-"memories": [
+  "memories": [
     {
       "_id": "60a3e5b9f3f3a2001f3e8d1a",
       "account": "60a3e5b9f3f3a2001f3e8d1b",
@@ -46,7 +76,14 @@ curl 'https://api.privvy.xyz/memory' \
       "createdAt": "2023-05-18T12:00:00.000Z",
       "updatedAt": "2023-05-18T12:00:00.000Z"
     }
-  ]
+    // ... more memory objects ...
+  ],
+  "pagination": {
+    "currentPage": 1,
+    "totalPages": 5,
+    "totalCount": 100,
+    "limit": 20
+  }
 }
 ```
 </ResponseExample>
