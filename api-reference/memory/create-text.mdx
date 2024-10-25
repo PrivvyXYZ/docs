@@ -37,7 +37,7 @@ This endpoint creates a new memory for the authenticated user's account from pro
 
 <RequestExample bash>
 ```bash
-curl -X POST 'https://api.privvy.xyz/memory/text' \
+curl -X POST 'https://api.privvy.xyz/memory/create/text' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
 -d '{"content": "Your plain text content here", "title": "Optional Title", "agentId": "agent123", "agentReferenceId": "agent123", "personaId": "persona123"}'
