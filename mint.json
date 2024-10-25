@@ -60,6 +60,7 @@
         "api-reference/persona/create",
         "api-reference/persona/get",
         "api-reference/persona/find",
+        "api-reference/persona/update",
         "api-reference/persona/delete"
       ]
     },
