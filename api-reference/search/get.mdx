@@ -13,11 +13,15 @@ This endpoint offers powerful search capabilities with optional features for fin
   The search query or content to match against documents. Required if audio is not provided.
 </ParamField>
 
+<ParamField body="personaId" type="string">
+  The unique identifier of the persona to search in.
+</ParamField>
+
 <ParamField body="rerank" type="boolean" default="false">
   When true, results will be re-ranked for better relevance. This acts like a "sniper" approach, providing more precise results at the cost of increased latency. It can improve LLM output by reducing irrelevant data and potentially lower costs by reducing input tokens. May result in fewer or no results, which can be beneficial for routing to fallback options.
 </ParamField>
 
-<ParamField body="expandQuery" type="boolean" default="true">
+<ParamField body="expandQuery" type="boolean" default="false">
   When true, the search query will be expanded to include related terms, potentially broadening the search results. This has 3 effects:
   - It may return more results.
   - It may return less relevant results.
