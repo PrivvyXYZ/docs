@@ -17,6 +17,10 @@ This endpoint creates a new persona document for the authenticated user's accoun
   The name or identifier of the persona document.
 </ParamField>
 
+<ParamField body="referenceId" type="string">
+  The unique identifier for reference. This is used to identify the persona document in the database to avoid duplicates. You can provide your referenceId, privvy will not generate one for you.
+</ParamField>
+
 <ParamField body="metadata" type="object">
   Metadata for the persona document as key-value pairs.
 </ParamField>
