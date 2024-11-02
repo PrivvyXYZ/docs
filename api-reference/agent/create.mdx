@@ -1,30 +1,30 @@
 ---
-title: 'Create Persona'
-api: 'POST /persona'
-description: 'Create a new persona'
+title: 'Create Agent'
+api: 'POST /agent'
+description: 'Create a new agent'
 authMethod: "bearer"
 ---
 
-This endpoint creates a new persona for the authenticated user's account.
+This endpoint creates a new agent for the authenticated user's account.
 
 ### Body
 
 <ParamField body="name" type="string" required>
-  The name of the persona to be created.
+  The name of the agent to be created.
 </ParamField>
 
 ### Response
 
-<ResponseField name="persona" type="object">
-  The created persona object.
+<ResponseField name="agent" type="object">
+  The created agent object.
 </ResponseField>
 
 <RequestExample>
 ```bash
-curl -X POST 'https://api.privvy.xyz/persona' \
+curl -X POST 'https://api.privvy.xyz/agent' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer YOUR_API_KEY' \
--d '{"name": "My New Persona"}'
+-d '{"name": "My New Agent"}'
 ```
 </RequestExample>
 
@@ -34,7 +34,7 @@ json Response
 {
   "agent": {
     "id": "60a3e5b9f3f3a2001f3e8d1a",
-    "name": "My New Persona",
+    "name": "My New Agent",
     "account": "60a3e5b9f3f3a2001f3e8d1b",
     "createdBy": "60a3e5b9f3f3a2001f3e8d1c",
     "createdAt": "2023-05-18T12:00:00.000Z",
@@ -47,9 +47,9 @@ json Response
 ### Error Responses
 
 <ResponseField name="error" type="string">
-  Error message if the persona creation fails.
+  Error message if the agent creation fails.
 </ResponseField>
 
 - HTTP 403: Returned if the user doesn't have the required subscription or has reached the agent limit.
-- HTTP 409: Returned if a persona with the same name already exists.
-- HTTP 500: Returned if there's a server error during persona creation.
+- HTTP 409: Returned if an agent with the same name already exists.
+- HTTP 500: Returned if there's a server error during agent creation.
